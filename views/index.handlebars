@@ -1,33 +1,82 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway:500|Josefin+Sans' rel='stylesheet' class="keep" type='text/css'>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/creative.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css">
+ <!-- Google Map script -->
+ <script src="js/initmap.js"></script>
+
+ <!-- Google My Location Button Plugin and Script by MapTilerLayer http://www.maptiler.com/maptilerlayer/ -->
+ <script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
+ <script src="" async="" class="googlemap"></script>
+  
+  <title>APP NAME</title>
+</head>
+<body>
+  <div id="guestnavbar"><!-- navbar goes here -->
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">APP NAME</a>
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="page-scroll" href="#home">HOME</a></li>
+              <li><a class="page-scroll" href="#APP NAME">My APP NAME</a></li>
+              <li><a class="page-scroll" href="#logout">LOGOUT</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle page-scroll" data-toggle="dropdown" href="#">MORE
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Share Pictures</a></li>
+                  <li><a href="#">Share APP</a></li>
+                  <li><a href="#">Just Talk</a></li>
+                </ul>
+              </li>
+              <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+            </ul>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
+        </div>
+      </nav>
+
+</div>
+  <div id="container" class="text-center">
+    <!-- React goes here -->
   </div>
+  <div id="floating-panel">
+    <input id="location" type="textbox" style="width:230px" placeholder="Type location" />
+    <button id="submit" class="btn btn-info" type="button">Go!</button>
+  </div>
+  <div id="map"></div>
+  <div id="footer"><!-- footer goes here -->
+    <footer class="text-center">
+        <a class="up-arrow" href="#container" data-toggle="tooltip" title="TO TOP">
+          <span class="glyphicon glyphicon-chevron-up"></span>
+        </a><br><br>
+        <p>Project Repo: <a href="https://github.com/ShmouG/Project2" data-toggle="tooltip" title="Learn APP">github repo </a></p><br>
+        <p>
+          <a href="" data-toggle="tooltip" title="Github"></a>
+        </p>
+      </footer>
+
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+</body>
+</html>

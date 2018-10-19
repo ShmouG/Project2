@@ -13,16 +13,12 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/creative.css" type="text/css">
   <link rel="stylesheet" href="css/style.css">
+ 
+ <!-- Google My Location Button Plugin and Script by MapTilerLayer http://www.maptiler.com/maptilerlayer/ -->
+ <script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
+ <script src="apikey" async="" class="googlemap"></script>
+ 
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  
-  <script>
-   $(function(){
-     $("#guestnavbar").load("/partials/guestnavbar.html");
-     $("#footer").load("/partials/footer.html");
-     $("#coverinfo").load("/partials/coverinfo.html");
-   });
-   </script>
   <title>APP NAME</title>
 </head>
 <body>
@@ -41,7 +37,7 @@
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
               <li><a class="page-scroll" href="#home">HOME</a></li>
-              <li><a class="page-scroll" href="#mytoto">My APP NAME</a></li>
+              <li><a class="page-scroll" href="#APP NAME">My APP NAME</a></li>
               <li><a class="page-scroll" href="#logout">LOGOUT</a></li>
               <li class="dropdown">
                 <a class="dropdown-toggle page-scroll" data-toggle="dropdown" href="#">MORE
@@ -60,9 +56,7 @@
       </nav>
 
 </div>
-  <div id="container" class="text-center">
-    <!-- React goes here -->
-  </div>
+  
   <div id="floating-panel">
     <input id="location" type="textbox" style="width:230px" placeholder="Type location" />
     <button id="submit" class="btn btn-info" type="button">Go!</button>
@@ -73,7 +67,7 @@
         <a class="up-arrow" href="#container" data-toggle="tooltip" title="TO TOP">
           <span class="glyphicon glyphicon-chevron-up"></span>
         </a><br><br>
-        <p>Project Repo: <a href="" data-toggle="tooltip" title="Learn APP">github repo </a></p><br>
+        <p>Project Repo: <a href="https://github.com/ShmouG/Project2" data-toggle="tooltip" title="Learn APP">github repo </a></p><br>
         <p>
           <a href="" data-toggle="tooltip" title="Github"></a>
         </p>
