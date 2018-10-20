@@ -8,5 +8,8 @@ module.exports = {
     browser: true,
     jquery: true,
     mocha: true
+  },
+  globals: {
+    google: true
   }
 };
