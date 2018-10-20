@@ -1,23 +1,19 @@
-html{
-  font-family: 'Josefin Sans', sans-serif;
+html {
+    font-family: 'Josefin Sans', sans-serif;
 }
-
-body {
-}
-
 
 #map {
-  width: 100%;
-  height: 500px;
+    width: 100%;
+    height: 100%;
 }
 
 #container {
-  padding: 72px 25px;
-  background-image: url('../images/background.jpeg');
-  background-size: cover;
-  width: 100%;
-  height: 860px;
-  position: relative;
+    padding: 72px 25px;
+    background-image: url('../images/background.jpeg');
+    background-size: cover;
+    width: 100%;
+    height: 860px;
+    position: relative;
 }
 
 /*#covermap {
@@ -26,16 +22,16 @@ body {
 }*/
 
 #coverinfo {
-  height: 300px;
+    height: 300px;
 }
 
 #floating-panel {
-  background-color: black;
-  z-index: 5;
-  padding: 5px;
-  text-align: center;
-  line-height: 30px;
-  padding-left: 10px;
+    background-color: black;
+    z-index: 5;
+    padding: 5px;
+    text-align: center;
+    line-height: 30px;
+    padding-left: 10px;
 }
 
 /*NavBar Styling reference http://www.w3schools.com/bootstrap/bootstrap_theme_band.asp*/
@@ -47,11 +43,12 @@ body {
     border: 0;
     font-size: 13px !important;
     letter-spacing: 4px;
-    opacity:0.9;
+    opacity: 0.9;
 }
 
 /* Add a gray color to all navbar links */
-.navbar li a, .navbar .navbar-brand {
+.navbar li a,
+.navbar .navbar-brand {
     color: white !important;
 }
 
@@ -63,7 +60,7 @@ body {
 /* The active link */
 .navbar-nav li.active a {
     color: #fff !important;
-    background-color:#29292c !important;
+    background-color: #29292c !important;
 }
 
 /* Remove border color from the collapsible button */
@@ -73,7 +70,7 @@ body {
 
 /* Dropdown */
 .open .dropdown-toggle {
-    color: #fff ;
+    color: #fff;
     background-color: #555 !important;
 }
 
@@ -104,8 +101,8 @@ footer a:hover {
     text-decoration: none;
 }
 
-ul{
-  list-style-type: none;
+ul {
+    list-style-type: none;
 }
 
 /* Add a dark gray background color to the modal header and center text */
@@ -113,19 +110,19 @@ ul{
 .modal-header,
 .modal-header h4,
 .modal-header .close {
-  background-color: #243D69;
-  color: white !important;
-  text-align: center;
-  font-size: 30px;
-  z-index: 100;
+    background-color: #243D69;
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+    z-index: 100;
 }
 
 .modal-header,
 .modal-body {
-  padding: 40px 50px;
-  z-index: 100;
+    padding: 40px 50px;
+    z-index: 100;
 }
 
 .modal-backdrop {
-  z-index: 0;
+    z-index: 0;
 }
