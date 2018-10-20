@@ -1,85 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway:500|Josefin+Sans' rel='stylesheet' class="keep" type='text/css'>
-
-  <!-- Bootstrap Core CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/creative.css" type="text/css">
-  <link rel="stylesheet" href="css/style.css">
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  
-  <script>
-   $(function(){
-     $("#guestnavbar").load("/partials/guestnavbar.html");
-     $("#footer").load("/partials/footer.html");
-     $("#coverinfo").load("/partials/coverinfo.html");
-   });
-   </script>
-  <title>APP NAME</title>
-</head>
-<body>
-  <div id="guestnavbar"><!-- navbar goes here -->
-
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand page-scroll" href="#page-top">APP NAME</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a class="page-scroll" href="#home">HOME</a></li>
-              <li><a class="page-scroll" href="#mytoto">My APP NAME</a></li>
-              <li><a class="page-scroll" href="#logout">LOGOUT</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle page-scroll" data-toggle="dropdown" href="#">MORE
-                  <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Share Pictures</a></li>
-                  <li><a href="#">Share APP</a></li>
-                  <li><a href="#">Just Talk</a></li>
-                </ul>
-              </li>
-              <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-</div>
-  <div id="container" class="text-center">
-    <!-- React goes here -->
-  </div>
-  <div id="floating-panel">
-    <input id="location" type="textbox" style="width:230px" placeholder="Type location" />
-    <button id="submit" class="btn btn-info" type="button">Go!</button>
-  </div>
-  <div id="map"></div>
-  <div id="footer"><!-- footer goes here -->
-    <footer class="text-center">
-        <a class="up-arrow" href="#container" data-toggle="tooltip" title="TO TOP">
-          <span class="glyphicon glyphicon-chevron-up"></span>
-        </a><br><br>
-        <p>Project Repo: <a href="" data-toggle="tooltip" title="Learn APP">github repo </a></p><br>
-        <p>
-          <a href="" data-toggle="tooltip" title="Github"></a>
-        </p>
-      </footer>
-
-</div>
-
-</body>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="js/maps.js"></script>
+  </body>
 </html>
