@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="css/creative.css" type="text/css">
   <link rel="stylesheet" href="css/style.css">
 
-  <title>APP NAME</title>
+  <title>Bidet Finder</title>
 </head>
 
 <body>
@@ -32,12 +32,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand page-scroll" href="#page-top">APP NAME</a>
+          <a class="navbar-brand page-scroll" href="#page-top">Bidet Finder</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
             <li><a class="page-scroll" href="#home">HOME</a></li>
-            <li><a class="page-scroll" href="#APP NAME">My APP NAME</a></li>
+            <li><a class="page-scroll" href="#Bidet Finder">My Bidet Finder</a></li>
             <li><a class="page-scroll" href="#logout">LOGOUT</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle page-scroll" data-toggle="dropdown" href="#">MORE
@@ -78,21 +78,56 @@
     </footer>
 
   </div>
-  <script>
-    var map;
+  <script>let map;
 
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-          lat: -34.397,
-          lng: 150.644
-        },
-        zoom: 8
-      });
-    }
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error: Your browser doesn't support geolocation."
+  );
+  infoWindow.open(map);
+}
+
+let infoWindow;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 6
+  });
+  infoWindow = new google.maps.InfoWindow();
+
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        infoWindow.setPosition(pos);
+        infoWindow.setContent("Location found.");
+        infoWindow.open(map);
+        map.setCenter(pos);
+      },
+      () => {
+        handleLocationError(true, infoWindow, map.getCenter());
+      }
+    );
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0FeHIxkGWXjnXjTXmaEauw2kwz29CyMo&callback=initMap"
     async defer></script>
+  {{!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0FeHIxkGWXjnXjTXmaEauw2kwz29CyMo&libraries=geometry,places">
+  </script> --}}
 </body>
 
 </html>
