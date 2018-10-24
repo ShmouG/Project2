@@ -21,24 +21,21 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-
-
-
-// firebase login // 
+// firebase login //
 // Initialize Firebase
-var config = {
+const config = {
   apiKey: "AIzaSyAAITPs9NXg-jjOvY1PF27QrXNcKjYxXTc",
-    authDomain: "bidet-finder-1539742659070.firebaseapp.com",
-    databaseURL: "https://bidet-finder-1539742659070.firebaseio.com",
-    projectId: "bidet-finder-1539742659070",
-    storageBucket: "bidet-finder-1539742659070.appspot.com",
-    messagingSenderId: "674326298876"
+  authDomain: "bidet-finder-1539742659070.firebaseapp.com",
+  databaseURL: "https://bidet-finder-1539742659070.firebaseio.com",
+  projectId: "bidet-finder-1539742659070",
+  storageBucket: "bidet-finder-1539742659070.appspot.com",
+  messagingSenderId: "674326298876"
 };
 
 firebase.initializeApp(config);
 
 // Creating a variable to reference the database.
-var database = firebase.database();
+let database = firebase.database();
 
 // Authentication Code
 // const txtEmail = document.getElementById('txtEmail');
@@ -68,7 +65,7 @@ var database = firebase.database();
 //       // Sign in
 //       const promise = auth.createUserWithEmailAndPassword(email, pass);
 //       promise.catch(e => console.log(e.message));
-//   });        
+//   });
 
 //   btnLogout.addEventListener('click', e=> {
 //       firebase.auth().signOut();
@@ -85,7 +82,7 @@ var database = firebase.database();
 //     }
 //   });
 
-$("#modalTrigger").on("click", function(event){
+$("#modalTrigger").on("click", (event) => {
   firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
@@ -97,7 +94,7 @@ $("#modalTrigger").on("click", function(event){
   });
 });
 
-$("#formSubmitButton").on("click", function () {
+$("#formSubmitButton").on("click", () => {
   
   // Grabbing user info
   var userName = $("#userName").val().trim();
@@ -158,4 +155,4 @@ db.sequelize.sync(syncOptions).then(() => {
 });
 
 module.exports = app;
-///
+// /

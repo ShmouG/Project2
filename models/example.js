@@ -1,7 +1,31 @@
 module.exports = (sequelize, DataTypes) => {
-  const Example = sequelize.define("Example", {
-    text: DataTypes.STRING,
-    description: DataTypes.TEXT
+  const Bidet = sequelize.define("Bidet", {
+    buildingName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
+    img: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    latitude: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue: null,
+      validate: { min: -90, max: 90 }
+    },
+    longitude: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue: null,
+      validate: { min: -180, max: 180 }
+    }
   });
-  return Example;
+  return Bidet;
 };
