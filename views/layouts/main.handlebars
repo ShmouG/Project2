@@ -64,7 +64,7 @@
 
   <div id="floating-panel">
     <div id="locationFeild">
-      <input id="address" type="textbox" style="width:230px" onFocus="geolocate()" placeholder="Type location"></input>
+      <input id="address" type="textbox" style="width:230px" placeholder="Type location"></input>
       <button id="submit" class="btn btn-info" type="button">Go!</button>
     </div>
   </div>
@@ -88,10 +88,11 @@
   </div>
 
   <script>
+
     function initMap() {
       //map options
       let options = {
-        zoom: 8,
+        zoom: 12,
         center: {
           lat: 44.977456,
           lng: -93.262500
@@ -104,7 +105,13 @@
         // Add marker
         
       });
-
+        let contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Bent Brewstillery</h1>'+
+            '<div id="bodyContent">'+
+            '</div>'+ '<img src="https://s3-media1.fl.yelpcdn.com/bphoto/yac1q7X_vOirkNkYgfc-sw/o.jpg" height="115" width="83">' +
+            '</div>';
       // Array of markers
       let markers = [{
           coords: {
@@ -120,7 +127,7 @@
             lng: -93.173886
           },
           iconImage: 'https://png.icons8.com/ios-glyphs/50/000000/bidet.png',
-          content: '<h1>Bent Brewstillery</h1>'
+          content: contentString
         },
         {
           coords: {
@@ -153,7 +160,7 @@
         // Check content
         if (props.content) {
           var infoWindow = new google.maps.InfoWindow({
-            content: props.content
+            content: contentString
           });
 
           marker.addListener('click', function () {
@@ -206,6 +213,7 @@
           alert('Geocode was not successful for the following reason: ' + status);
         }
       });
+      console.log(address);
     }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
