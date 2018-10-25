@@ -20,80 +20,102 @@
 </head>
 
 <body>
+  <div class="container-fluid">
   <!-- navbar goes here -->
-  <div id="guestnavbar">
+    <div class="row">
+      <div class="col">
+        <div id="guestnavbar">
+          <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Bidet Finder</a>
+              </div>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand page-scroll" href="#page-top">Bidet Finder</a>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a class="page-scroll" href="#home">HOME</a></li>
+                  <li><a class="page-scroll" href="#Bidet Finder">My Bidet Finder</a></li>
+                  <li><a class="page-scroll" href="#logout">LOGOUT</a></li>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle page-scroll" data-toggle="dropdown" href="#">MORE
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Share Pictures</a></li>
+                      <li><a href="#">Share APP</a></li>
+                      <li><a href="#">Just Talk</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+                </ul>
+              </div>
+
+            </div>
+          </nav>
         </div>
-
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a class="page-scroll" href="#home">HOME</a></li>
-            <li><a class="page-scroll" href="#Bidet Finder">My Bidet Finder</a></li>
-            <li><a class="page-scroll" href="#logout">LOGOUT</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle page-scroll" data-toggle="dropdown" href="#">MORE
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Share Pictures</a></li>
-                <li><a href="#">Share APP</a></li>
-                <li><a href="#">Just Talk</a></li>
-              </ul>
-            </li>
-            <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
-          </ul>
-        </div>
-
       </div>
-    </nav>
-  </div>
+    </div>
 
  {{!-- instructions goes here --}}
-  <div id="instructions">
-    <h1>Instructions:</h1>
-    <h4>1. Sign up for a Yay Bidet account to save your favorite bidets.</h4>
-    <h4>2. Allow Google to access your location or type in your own location using the search bar.</h4>
-    <h4>3. Bidets and Toilets will pop up on the map, click on the Bidet that you would like to use.</h4>
-    <h4>4. A route will be given to you on the Map from your location to the chosen Bidet.</h4>
-
-
-  </div>
+    <div class="row">
+      <div class="col">
+        <div id="instructions">
+          <h1>Instructions:</h1>
+          <h4>1. Sign up for a Yay Bidet account to save your favorite bidets.</h4>
+          <h4>2. Allow Google to access your location or type in your own location using the search bar.</h4>
+          <h4>3. Bidets and Toilets will pop up on the map, click on the Bidet that you would like to use.</h4>
+          <h4>4. A route will be given to you on the Map from your location to the chosen Bidet.</h4>
+        </div>
+      </div>
+    </div>
 
   {{!-- Search goes here --}}
-  <div id="floating-panel">
-    <div id="locationField">
-      <input id="address" type="textbox" style="width:230px" placeholder="Type location"></input>
-      <button id="submit" class="btn btn-info" type="button">Go!</button>
+    <div class="row">
+      <div class="col">
+        <div id="floating-panel">
+          <div id="locationField">
+            <input id="address" type="textbox" style="width:230px" placeholder="Type location"></input>
+            <button id="submit" class="btn btn-info" type="button">Go!</button>
+          </div>
+        </div> 
+      </div>
     </div>
-  </div>
 
- {{!-- Map goes here --}}
-  <div id="map">
+  {{!-- Map goes here --}}
+    <div class="row">
+        <div id="map">
 
-  </div>
+        </div>
+    </div>
 
   <!-- footer goes here -->
-  <div id="footer">
-    <footer class="text-center">
-      <a class="up-arrow" href="#container" data-toggle="tooltip" title="TO TOP">
-        <span class="glyphicon glyphicon-chevron-up"></span>
-      </a><br><br>
-      <p>Project Repo: <a href="https://github.com/ShmouG/Project2" data-toggle="tooltip" title="Learn APP">github repo
-        </a></p><br>
-      <p>
-        <a href="" data-toggle="tooltip" title="Github"></a>
-      </p>
-    </footer>
+    <div class="row">
+      <div class="col">
+        <div id="footer">
+          <footer class="text-center">
+            <a class="up-arrow" href="#container" data-toggle="tooltip" title="TO TOP">
+              <span class="glyphicon glyphicon-chevron-up"></span>
+            </a><br><br>
+            <p>Project Repo: <a href="https://github.com/ShmouG/Project2" data-toggle="tooltip" title="Learn APP">github repo
+              </a></p><br>
+            <p>
+              <a href="" data-toggle="tooltip" title="Github"></a>
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+
+
+
 
   <script>
 function initMap() {
