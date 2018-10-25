@@ -7,6 +7,13 @@ html {
     height: 100%;
 }
 
+#instructions {
+    background-color: rgb(29, 126, 161);
+    width: 60%;
+    height: 300px;
+    padding: 10px;
+}
+
 #container {
     padding: 72px 25px;
     /* background-image: url('../images/background.jpeg'); */
