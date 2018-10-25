@@ -57,23 +57,31 @@
     </nav>
   </div>
 
-  <!-- React goes here -->
-  <div id="container" class="text-center">
+ {{!-- instructions goes here --}}
+  <div id="instructions">
+    <h1>Instructions:</h1>
+    <h4>1. Sign up for a Yay Bidet account to save your favorite bidets.</h4>
+    <h4>2. Allow Google to access your location or type in your own location using the search bar.</h4>
+    <h4>3. Bidets and Toilets will pop up on the map, click on the Bidet that you would like to use.</h4>
+    <h4>4. A route will be given to you on the Map from your location to the chosen Bidet.</h4>
+
 
   </div>
 
+  {{!-- Search goes here --}}
   <div id="floating-panel">
-    <div id="locationFeild">
+    <div id="locationField">
       <input id="address" type="textbox" style="width:230px" placeholder="Type location"></input>
       <button id="submit" class="btn btn-info" type="button">Go!</button>
     </div>
   </div>
 
+ {{!-- Map goes here --}}
   <div id="map">
 
   </div>
 
-    <!-- footer goes here -->
+  <!-- footer goes here -->
   <div id="footer">
     <footer class="text-center">
       <a class="up-arrow" href="#container" data-toggle="tooltip" title="TO TOP">
@@ -222,7 +230,7 @@ function geocodeAddress(geocoder, resultsMap) {
   );
   console.log(address);
 }
-  </script>
+</script>
   <script src="/initmap.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
