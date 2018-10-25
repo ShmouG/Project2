@@ -10,6 +10,8 @@ module.exports = {
     mocha: true
   },
   globals: {
-    google: true
+    google: true,
+    handleLocationError: true,
+    infoWindow: true
   }
 };
