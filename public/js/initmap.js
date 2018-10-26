@@ -1,15 +1,14 @@
-const options = {
-  zoom: 12,
-  center: {
-    lat: 44.977456,
-    lng: -93.2625
-  }
-};
-const map = new google.maps.Map(document.getElementById("map"), options);
 function initMap() {
   // map options
-
+  const options = {
+    zoom: 12,
+    center: {
+      lat: 44.977456,
+      lng: -93.2625
+    }
+  };
   // new map
+  const map = new google.maps.Map(document.getElementById("map"), options);
   // Listen for click on map
   google.maps.event.addListener(map, "click", event => {
     event.preventDefault();
