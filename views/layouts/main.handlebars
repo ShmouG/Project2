@@ -9,7 +9,8 @@
     type='text/css'>
 
   <!-- Bootstrap Core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
 
 
   <!-- Custom CSS -->
@@ -57,15 +58,47 @@
     </nav>
   </div>
 
- {{!-- instructions goes here --}}
-  <div id="instructions">
-    <h1>Instructions:</h1>
-    <h4>1. Sign up for a Yay Bidet account to save your favorite bidets.</h4>
-    <h4>2. Allow Google to access your location or type in your own location using the search bar.</h4>
-    <h4>3. Bidets and Toilets will pop up on the map, click on the Bidet that you would like to use.</h4>
-    <h4>4. A route will be given to you on the Map from your location to the chosen Bidet.</h4>
+  {{!-- instructions goes here --}}
+  <div class="row">
+    <div id="instructions">
+      <h1>Instructions:</h1>
+      <h4>1. Sign up for a Yay Bidet account to save your favorite bidets.</h4>
+      <h4>2. Allow Google to access your location or type in your own location using the search bar.</h4>
+      <h4>3. Bidets and Toilets will pop up on the map, click on the Bidet that you would like to use.</h4>
+      <h4>4. A route will be given to you on the Map from your location to the chosen Bidet.</h4>
+    </div>
+    <div class="col">
+      <div id="form">
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Toilet Location</label>
+            <input type="address" class="form-control" id="exampleFormControlInput1" placeholder="Location">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Toilet Type</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>Toilet</option>
+              <option>Bidet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Extra Details</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+            <div class="row">
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Example file input</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
 
-
+          </div>
+          <div class="col">
+          <button type="button" class="btn btn-primary">Primary</button>
+          </div>
+                      </div>
+</div>
+        </form>
+      </div>
+    </div>
   </div>
 
   {{!-- Search goes here --}}
@@ -76,7 +109,7 @@
     </div>
   </div>
 
- {{!-- Map goes here --}}
+  {{!-- Map goes here --}}
   <div id="map">
 
   </div>
@@ -96,147 +129,150 @@
   </div>
 
   <script>
-function initMap() {
-  // map options
-  const options = {
-    zoom: 12,
-    center: {
-      lat: 44.977456,
-      lng: -93.2625
-    }
-  };
-  // new map
-  const map = new google.maps.Map(document.getElementById("map"), options);
-  // Listen for click on map
-  google.maps.event.addListener(map, "click", event => {
-    // Add marker
-  });
-  // content of marker
-  const contentString =
-    '<div id="content">' +
-    '<div id="siteNotice">' +
-    "</div>" +
-    '<h1 id="firstHeading" class="firstHeading">Bent Brewstillery</h1>' +
-    '<div id="bodyContent">' +
-    "</div>" +
-    '<img src="https://s3-media1.fl.yelpcdn.com/bphoto/yac1q7X_vOirkNkYgfc-sw/o.jpg" height="115" width="83">' +
-    "</div>";
-  // Add Marker Function
-  function addMarker(props) {
-    const marker = new google.maps.Marker({
-      position: props.coords,
-      map
-      // icon:props.iconImage
-    });
-
-    // Check for customicon
-    if (props.iconImage) {
-      // Set icon image
-      marker.setIcon(props.iconImage);
-    }
-    
-    // Check content
-    if (props.content) {
-      const infoWindow = new google.maps.InfoWindow({
-       content: props.content, 
+    function initMap() {
+      // map options
+      const options = {
+        zoom: 12,
+        center: {
+          lat: 44.977456,
+          lng: -93.2625
+        }
+      };
+      // new map
+      const map = new google.maps.Map(document.getElementById("map"), options);
+      // Listen for click on map
+      google.maps.event.addListener(map, "click", event => {
+        // Add marker
       });
-
-      marker.addListener("click", () => {
-        infoWindow.open(map, marker);
-      });
-    }
-  }
-
-  // Array of markers
-   const markers = [
-    {
-      coords: {
-        lat: 42.4668,
-        lng: -70.9495
-      },
-      iconImage: "./public/images/yaybidet.jpg",
-      content: "<h1>Lynn MA</h1>"
-    },
-    {
-      coords: {
-        lat: 45.024963,
-        lng: -93.173886
-      },
-      iconImage: "https://png.icons8.com/ios-glyphs/50/000000/bidet.png",
-      content: contentString
-    },
-    {
-      coords: {
-        lat: 44.980674,
-        lng: -93.175621
-      },
-      iconImage: "/images/toilet-paper.png",
-      content: "<h1>Minnesota State Fair Restroom</h1>"
-    }
-  ];
-
-  // Loop through markers
-  for (let i = 0; i < markers.length; i++) {
-    // Add marker
-    addMarker(markers[i]);
-  }
-
-  const geocoder = new google.maps.Geocoder();
-
-  document.getElementById("submit").addEventListener("click", () => {
-    geocodeAddress(geocoder, map);
-  });
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        console.log(pos);
-
-        // infoWindow.setPosition(pos);
-        // infoWindow.setContent("Location found.");
-        // infoWindow.open(map);
-        map.setCenter(pos);
-      },
-      () => {
-        handleLocationError(true, infoWindow, map.getCenter());
-      }
-    );
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-}
-
-function geocodeAddress(geocoder, resultsMap) {
-  const address = document.getElementById("address").value;
-  geocoder.geocode(
-    {
-      address
-    },
-    (results, status) => {
-      if (status === "OK") {
-        resultsMap.setCenter(results[0].geometry.location);
+      // content of marker
+      const contentString =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" +
+        '<h1 id="firstHeading" class="firstHeading">Bent Brewstillery</h1>' +
+        '<div id="bodyContent">' +
+        "</div>" +
+        '<img src="https://s3-media1.fl.yelpcdn.com/bphoto/yac1q7X_vOirkNkYgfc-sw/o.jpg" height="115" width="83">' +
+        "</div>";
+      // Add Marker Function
+      function addMarker(props) {
         const marker = new google.maps.Marker({
-          map: resultsMap,
-          position: results[0].geometry.location
+          position: props.coords,
+          map
+          // icon:props.iconImage
         });
+
+        // Check for customicon
+        if (props.iconImage) {
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if (props.content) {
+          const infoWindow = new google.maps.InfoWindow({
+            content: props.content,
+          });
+
+          marker.addListener("click", () => {
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+
+      // Array of markers
+      const markers = [{
+          coords: {
+            lat: 42.4668,
+            lng: -70.9495
+          },
+          iconImage: "./public/images/yaybidet.jpg",
+          content: "<h1>Lynn MA</h1>"
+        },
+        {
+          coords: {
+            lat: 45.024963,
+            lng: -93.173886
+          },
+          iconImage: "https://png.icons8.com/ios-glyphs/50/000000/bidet.png",
+          content: contentString
+        },
+        {
+          coords: {
+            lat: 44.980674,
+            lng: -93.175621
+          },
+          iconImage: "/images/toilet-paper.png",
+          content: "<h1>Minnesota State Fair Restroom</h1>"
+        }
+      ];
+
+      // Loop through markers
+      for (let i = 0; i < markers.length; i++) {
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      const geocoder = new google.maps.Geocoder();
+
+      document.getElementById("submit").addEventListener("click", () => {
+        geocodeAddress(geocoder, map);
+      });
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            const pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            console.log(pos);
+
+            // infoWindow.setPosition(pos);
+            // infoWindow.setContent("Location found.");
+            // infoWindow.open(map);
+            map.setCenter(pos);
+          },
+          () => {
+            handleLocationError(true, infoWindow, map.getCenter());
+          }
+        );
       } else {
-        alert(`Geocode was not successful for the following reason: ${status}`);
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
       }
     }
-  );
-  console.log(address);
-}
-</script>
-  <script src="/initmap.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0FeHIxkGWXjnXjTXmaEauw2kwz29CyMo&callback=initMap&libraries=places"async defer></script>
+
+    function geocodeAddress(geocoder, resultsMap) {
+      const address = document.getElementById("address").value;
+      geocoder.geocode({
+          address
+        },
+        (results, status) => {
+          if (status === "OK") {
+            resultsMap.setCenter(results[0].geometry.location);
+            const marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert(`Geocode was not successful for the following reason: ${status}`);
+          }
+        }
+      );
+      console.log(address);
+    }
+  </script>
+  {{!-- <script src="/initmap.js"></script> --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0FeHIxkGWXjnXjTXmaEauw2kwz29CyMo&callback=initMap&libraries=places"
+    async defer></script>
   {{!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0FeHIxkGWXjnXjTXmaEauw2kwz29CyMo&libraries=geometry,places">
   </script> --}}
 </body>
+
 </html>
