@@ -1,7 +1,7 @@
 const React = require('react');
 const auth = require('../auth');
 
-const Login = React.createClass({
+const Create = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
@@ -16,61 +16,68 @@ const Login = React.createClass({
 
   handleSubmit : function(event) {
     event.preventDefault()
-
-    const email = this.refs.email.value
-    const password = this.refs.password.value
-
-    auth.login(email, password, (loggedIn) => {
-      if (!loggedIn)
-        return this.setState({ error: true })
-      const { location } = this.props
-
-      if (location.state && location.state.nextPathname) {
-        this.context.router.replace(location.state.nextPathname)
-      } else {
-        var user_id = {
-        user_id: parseInt(localStorage.user_id)
-        }
+    const name = this.refs.name.value
+    const location = this.refs.location.value
+    const description = this.refs.description.value
+    const newToto = {
+      user_id: parseInt(localStorage.user_id),
+      name: name,
+      location: location,
+      description: description
+    }
+    $.post('/bidet', newBidet)
+      .done((data)=>{
+        console.log(data);
         $.post('/bidet/private', user_id)
           .done((data)=>{
+            delete localStorage.myBidet
             localStorage.myToto = JSON.stringify(data)
           })
           .error((error)=>{
             console.log('Error getting my bidet!', error);
           })
         this.context.router.replace('/')
-      }
-    })
-    $('#userinput').modal('hide')
+      })
+      .error((error)=>{
+        console.log('Error posting YAY BIDET!');
+      })
+    $('#myCreate').modal('hide')
+
   },
   render : function() {
     return (
-      <div id="myLogin" role="dialog" className="modal fade">
+      <div id="myCreate" role="dialog" className="modal fade">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
               <button type="button" className="close" data-dismiss="modal">×</button>
-              <h4><span className="glyphicon glyphicon-asterick" /> Login</h4>
+              <h4><span className="glyphicon glyphicon-heart" /> Add my profile!</h4>
             </div>
 
             <div className="modal-body" id="loginform">
               <form role="form" onSubmit={this.handleSubmit}>
+              <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
+                <span className="input-group-addon">
+                  <span className="glyphicon glyphicon-tint"></span>
+                </span>
+                <input ref="name" type="text" className="form-control"  placeholder="name" autofocus />
+              </div>
+
+              <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
+                <span className="input-group-addon">
+                  <span className="glyphicon glyphicon-map-marker"></span>
+                </span>
+                <input ref="location" type="text" id="location" className="form-control"  placeholder="location" autofocus />
+              </div>
 
                 <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
                   <span className="input-group-addon">
-                    <span className="glyphicon glyphicon-envelope"></span>
+                    <span className="glyphicon glyphicon-list-alt"></span>
                   </span>
-                  <input ref="email" type="email" id="inputEmail" className="form-control"  placeholder="Email address" autofocus />
+                  <input ref="description" type="text" className="form-control" placeholder="description" />
                 </div>
 
-                <div className="input-group input-group-md col-md-6 col-md-offset-3" style={{marginBottom: 10}}>
-                  <span className="input-group-addon">
-                    <span className="glyphicon glyphicon-lock"></span>
-                  </span>
-                  <input ref="password" type="password" id="inputPassword" className="form-control" placeholder="Password" />
-                </div>
-
-                <button type="submit" className="btn" style={{marginTop: 10}}>Login
+                <button type="submit" className="btn" style={{marginTop: 10}}>Add it!
                   <span className="glyphicon glyphicon-ok" />
                 </button>
 
@@ -93,4 +100,4 @@ const Login = React.createClass({
   }
 })
 
-module.exports = Login;
+module.exports = Create;
