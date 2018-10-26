@@ -94,7 +94,9 @@ function geocodeAddress(location, resultsMap) {
           map: resultsMap,
           position: results[0].geometry.location
         });
-        console.log(marker.geometry.location);
+        console.log(results[0].geometry.location.lat());
+        console.log(results[0].geometry.location.lng());
+        console.log(marker);
       } else {
         alert(`Geocode was not successful for the following reason: ${status}`);
       }
