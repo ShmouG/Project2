@@ -11,6 +11,7 @@ function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), options);
   // Listen for click on map
   google.maps.event.addListener(map, "click", event => {
+    event.preventDefault();
     // Add marker
   });
   // content of marker
@@ -30,25 +31,21 @@ function initMap() {
       map
       // icon:props.iconImage
     });
-
     // Check for customicon
     if (props.iconImage) {
       // Set icon image
       marker.setIcon(props.iconImage);
     }
-
     // Check content
     if (props.content) {
       const infoWindow = new google.maps.InfoWindow({
-        content: contentString
+        content: props.content
       });
-
       marker.addListener("click", () => {
         infoWindow.open(map, marker);
       });
     }
   }
-
   // Array of markers
   const markers = [
     {
@@ -72,48 +69,21 @@ function initMap() {
         lat: 44.980674,
         lng: -93.175621
       },
-      iconImage: "https://www.flaticon.com/authors/chanut"
+      iconImage: "/images/toilet-paper.png",
+      content: "<h1>Minnesota State Fair Restroom</h1>"
     }
   ];
-
   // Loop through markers
-  for (let i = 0; i < markers.length; i++) {
-    // Add marker
-    addMarker(markers[i]);
-  }
-
-  const geocoder = new google.maps.Geocoder();
-
-  document.getElementById("submit").addEventListener("click", () => {
-    geocodeAddress(geocoder, map);
+  markers.forEach(el => {
+    // add marker
+    addMarker(el);
   });
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        console.log(pos);
-
-        // infoWindow.setPosition(pos);
-        // infoWindow.setContent("Location found.");
-        // infoWindow.open(map);
-        map.setCenter(pos);
-      },
-      () => {
-        handleLocationError(true, infoWindow, map.getCenter());
-      }
-    );
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
 }
+const geocoder = new google.maps.Geocoder();
 
-function geocodeAddress(geocoder, resultsMap) {
+function geocodeAddress(location, resultsMap) {
   const address = document.getElementById("address").value;
-  geocoder.geocode(
+  location.geocode(
     {
       address
     },
@@ -124,10 +94,36 @@ function geocodeAddress(geocoder, resultsMap) {
           map: resultsMap,
           position: results[0].geometry.location
         });
+        console.log(results[0].geometry.location.lat());
+        console.log(results[0].geometry.location.lng());
+        console.log(marker);
       } else {
         alert(`Geocode was not successful for the following reason: ${status}`);
       }
     }
   );
-  console.log(address);
+}
+document.getElementById("submit").addEventListener("click", () => {
+  geocodeAddress(geocoder, map);
+});
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    position => {
+      const pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      console.log(pos);
+      // infoWindow.setPosition(pos);
+      // infoWindow.setContent("Location found.");
+      // infoWindow.open(map);
+      map.setCenter(pos);
+    },
+    () => {
+      handleLocationError(true, infoWindow, map.getCenter());
+    }
+  );
+} else {
+  // Browser doesn't support Geolocation
+  handleLocationError(false, infoWindow, map.getCenter());
 }
