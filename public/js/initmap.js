@@ -1,142 +1,123 @@
 function initMap() {
-  // map options
-  const options = {
-    zoom: 12,
-    center: {
-      lat: 44.977456,
-      lng: -93.2625
-    }
-  };
-  // new map
-  const map = new google.maps.Map(document.getElementById("map"), options);
-  // Listen for click on map
-  google.maps.event.addListener(map, "click", event => {
-    // Add marker
-  });
-  // content of marker
-  const contentString =
-    '<div id="content">' +
-    '<div id="siteNotice">' +
-    "</div>" +
-    '<h1 id="firstHeading" class="firstHeading">Bent Brewstillery</h1>' +
-    '<div id="bodyContent">' +
-    "</div>" +
-    '<img src="https://s3-media1.fl.yelpcdn.com/bphoto/yac1q7X_vOirkNkYgfc-sw/o.jpg" height="115" width="83">' +
-    "</div>";
-  // Add Marker Function
-  function addMarker(props) {
-    const marker = new google.maps.Marker({
-      position: props.coords,
-      map
-      // icon:props.iconImage
+    // map options
+    const options = {
+        zoom: 12,
+        center: {
+            lat: 44.977456,
+            lng: -93.2625
+        }
+    };
+    // new map
+    const map = new google.maps.Map(document.getElementById("map"), options);
+    // Listen for click on map
+    google.maps.event.addListener(map, "click", event => {
+        // Add marker
     });
-
-    // Check for customicon
-    if (props.iconImage) {
-      // Set icon image
-      marker.setIcon(props.iconImage);
-    }
-
-    // Check content
-    if (props.content) {
-      const infoWindow = new google.maps.InfoWindow({
-        content: contentString
-      });
-
-      marker.addListener("click", () => {
-        infoWindow.open(map, marker);
-      });
-    }
-  }
-
-  // Array of markers
-  const markers = [
-    {
-      coords: {
-        lat: 42.4668,
-        lng: -70.9495
-      },
-      iconImage: "./public/images/yaybidet.jpg",
-      content: "<h1>Lynn MA</h1>"
-    },
-    {
-      coords: {
-        lat: 45.024963,
-        lng: -93.173886
-      },
-      iconImage: "https://png.icons8.com/ios-glyphs/50/000000/bidet.png",
-      content: contentString
-    },
-    {
-      coords: {
-        lat: 44.980674,
-        lng: -93.175621
-      },
-      iconImage: "https://www.flaticon.com/authors/chanut"
-    }
-  ];
-
-  // Loop through markers
-  for (let i = 0; i < markers.length; i++) {
-    // Add marker
-    addMarker(markers[i]);
-  }
-
-  const geocoder = new google.maps.Geocoder();
-
-  document.getElementById("submit").addEventListener("click", () => {
-    geocodeAddress(geocoder, map);
-  });
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        console.log(pos);
-
-        // infoWindow.setPosition(pos);
-        // infoWindow.setContent("Location found.");
-        // infoWindow.open(map);
-        map.setCenter(pos);
-      },
-      () => {
-        handleLocationError(true, infoWindow, map.getCenter());
-      }
-    );
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-}
-
-function geocodeAddress(geocoder, resultsMap) {
-  const address = document.getElementById("address").value;
-  geocoder.geocode(
-    {
-      address
-    },
-    (results, status) => {
-      if (status === "OK") {
-        resultsMap.setCenter(results[0].geometry.location);
+    // content of marker
+    const contentString =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" +
+        '<h1 id="firstHeading" class="firstHeading">Bent Brewstillery</h1>' +
+        '<div id="bodyContent">' +
+        "</div>" +
+        '<img src="https://s3-media1.fl.yelpcdn.com/bphoto/yac1q7X_vOirkNkYgfc-sw/o.jpg" height="115" width="83">' +
+        "</div>";
+    // Add Marker Function
+    function addMarker(props) {
         const marker = new google.maps.Marker({
-          map: resultsMap,
-          position: results[0].geometry.location
+            position: props.coords,
+            map
+            // icon:props.iconImage
         });
-      } else {
-        alert(`Geocode was not successful for the following reason: ${status}`);
-      }
+        // Check for customicon
+        if (props.iconImage) {
+            // Set icon image
+            marker.setIcon(props.iconImage);
+        }
+        // Check content
+        if (props.content) {
+            const infoWindow = new google.maps.InfoWindow({
+                content: props.content,
+            });
+            marker.addListener("click", () => {
+                infoWindow.open(map, marker);
+            });
+        }
     }
-  );
-  console.log(address);
+    // Array of markers
+    const markers = [{
+        coords: {
+            lat: 42.4668,
+            lng: -70.9495
+        },
+        iconImage: "./public/images/yaybidet.jpg",
+        content: "<h1>Lynn MA</h1>"
+    },
+    {
+        coords: {
+            lat: 45.024963,
+            lng: -93.173886
+        },
+        iconImage: "https://png.icons8.com/ios-glyphs/50/000000/bidet.png",
+        content: contentString
+    },
+    {
+        coords: {
+            lat: 44.980674,
+            lng: -93.175621
+        },
+        iconImage: "/images/toilet-paper.png",
+        content: "<h1>Minnesota State Fair Restroom</h1>"
+    }
+    ];
+    // Loop through markers
+    for (let i = 0; i < markers.length; i++) {
+        // Add marker
+        addMarker(markers[i]);
+    }
+    const geocoder = new google.maps.Geocoder();
+    document.getElementById("submit").addEventListener("click", () => {
+        geocodeAddress(geocoder, map);
+    });
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                const pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                console.log(pos);
+                // infoWindow.setPosition(pos);
+                // infoWindow.setContent("Location found.");
+                // infoWindow.open(map);
+                map.setCenter(pos);
+            },
+            () => {
+                handleLocationError(true, infoWindow, map.getCenter());
+            }
+        );
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
 }
-
-$('').on("submit", function(event) {
-    event.preventDefault();
-
-    const bidetLocation = $(this).children('').val();
-    $.post('/api/examples', {
-      
-    })
-  })
+function geocodeAddress(geocoder, resultsMap) {
+    const address = document.getElementById("address").value;
+    geocoder.geocode({
+        address
+    },
+        (results, status) => {
+            if (status === "OK") {
+                resultsMap.setCenter(results[0].geometry.location);
+                const marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert(`Geocode was not successful for the following reason: ${status}`);
+            }
+        }
+    );
+    console.log(address);
+}
