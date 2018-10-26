@@ -10,6 +10,6 @@ module.exports = {
     mocha: true
   },
   globals: {
-    google: true
+    google: true,
   }
 };
