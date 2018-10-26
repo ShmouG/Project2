@@ -3,13 +3,13 @@ html {
 }
 #map {
     width: 100%;
-    height: 400px;
+    height: 550px;
 }
 #instructions {
     background-color: rgb(29, 126, 161);
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 20px;
 }
 #container {
     padding: 72px 25px;
@@ -29,6 +29,22 @@ html {
     line-height: 30px;
     padding-left: 10px;
 }
+
+#dropdownMenu {
+    height: 17px;
+    width: 17px;
+}
+
+#addBidet {
+    padding: 20px;
+}
+
+#submitBidet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*NavBar Styling reference http://www.w3schools.com/bootstrap/bootstrap_theme_band.asp*/
 /* Add a dark background color with a little bit see-through */
 .navbar {
