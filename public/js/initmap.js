@@ -131,3 +131,12 @@ function geocodeAddress(geocoder, resultsMap) {
   );
   console.log(address);
 }
+
+$('').on("submit", function(event) {
+    event.preventDefault();
+
+    const bidetLocation = $(this).children('').val();
+    $.post('/api/examples', {
+      
+    })
+  })

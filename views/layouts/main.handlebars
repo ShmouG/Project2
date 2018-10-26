@@ -14,119 +14,140 @@
 
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/creative.css" type="text/css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/creative.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 
   <title>Yay Bidet</title>
 </head>
 
 <body>
-  <!-- navbar goes here -->
-  <div id="guestnavbar">
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand page-scroll" href="#page-top">Bidet Finder</a>
+    <!-- navbar goes here -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div id="guestnavbar">
+                    <nav class="navbar navbar-default navbar-fixed-top">
+                        <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand page-scroll" href="#page-top">Bidet Finder</a>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav navbar-right">
+                            <li><a class="page-scroll" href="#home">HOME</a></li>
+                            <li><a class="page-scroll" href="#Bidet Finder">My Bidet Finder</a></li>
+                            <li><a class="page-scroll" href="#logout">LOGOUT</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle page-scroll" data-toggle="dropdown" href="#">MORE
+                                <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                <li><a href="#">Share Pictures</a></li>
+                                <li><a href="#">Share APP</a></li>
+                                <li><a href="#">Just Talk</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+                            </ul>
+                        </div>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
         </div>
 
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a class="page-scroll" href="#home">HOME</a></li>
-            <li><a class="page-scroll" href="#Bidet Finder">My Bidet Finder</a></li>
-            <li><a class="page-scroll" href="#logout">LOGOUT</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle page-scroll" data-toggle="dropdown" href="#">MORE
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Share Pictures</a></li>
-                <li><a href="#">Share APP</a></li>
-                <li><a href="#">Just Talk</a></li>
-              </ul>
-            </li>
-            <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
-          </ul>
+        <div class="row">
+            <div class="col">
+                <div id="instructions">
+                    <h1>Instructions:</h1>
+                    <h4>1. Sign up for a Yay Bidet account to save your favorite bidets.</h4>
+                    <h4>2. Allow Google to access your location or type in your own location using the search bar.</h4>
+                    <h4>3. Bidets and Toilets will pop up on the map, click on the Bidet that you would like to use.</h4>
+                    <h4>4. A route will be given to you on the Map from your location to the chosen Bidet.</h4>
+                </div>
+            </div>
+            <div class="col">
+                    <div id="form">
+                        <form>
+                            <div class="form-group">
+                            <label for="exampleFormControlInput1">Toilet Location</label>
+                            <input type="address" class="form-control" id="exampleFormControlInput1" placeholder="Location">
+                            </div>
+                            <div class="form-group">
+                            <label for="exampleFormControlSelect1">Toilet Type</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Toilet</option>
+                                <option>Bidet</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Extra Details</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlFile1">Example file input</label>
+                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                        </div>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btn btn-primary">Primary</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+            </div>
         </div>
 
-      </div>
-    </nav>
-  </div>
+        <!-- Search goes here -->
+        <div class="row">
+            <div class="col">
+                <div id="floating-panel">
+                    <div id="locationField">
+                    <input id="address" type="textbox" style="width:230px" placeholder="Type location"></input>
+                    <button id="submit" class="btn btn-info" type="button">Go!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  {{!-- instructions goes here --}}
-  <div class="row">
-    <div id="instructions">
-      <h1>Instructions:</h1>
-      <h4>1. Sign up for a Yay Bidet account to save your favorite bidets.</h4>
-      <h4>2. Allow Google to access your location or type in your own location using the search bar.</h4>
-      <h4>3. Bidets and Toilets will pop up on the map, click on the Bidet that you would like to use.</h4>
-      <h4>4. A route will be given to you on the Map from your location to the chosen Bidet.</h4>
+        <!-- Map goes here  -->
+        <div class="row">
+            <div class="col">
+                    <div id="map">
+                  
+                    </div>
+            </div>
+        </div>
+
+        <!-- footer goes here -->
+        <div class="row">
+            <div class="col">
+                <div id="footer">
+                    <footer class="text-center">
+                    <a class="up-arrow" href="#container" data-toggle="tooltip" title="TO TOP">
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                    </a><br><br>
+                    <p>Project Repo: <a href="https://github.com/ShmouG/Project2" data-toggle="tooltip" title="Learn APP">github repo
+                        </a></p><br>
+                    <p>
+                        <a href="" data-toggle="tooltip" title="Github"></a>
+                    </p>
+                    </footer>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col">
-      <div id="form">
-        <form>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Toilet Location</label>
-            <input type="address" class="form-control" id="exampleFormControlInput1" placeholder="Location">
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Toilet Type</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>Toilet</option>
-              <option>Bidet</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Extra Details</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-            <div class="row">
-          <div class="form-group">
-            <label for="exampleFormControlFile1">Example file input</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-
-          </div>
-          <div class="col">
-          <button type="button" class="btn btn-primary">Primary</button>
-          </div>
-                      </div>
-</div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  {{!-- Search goes here --}}
-  <div id="floating-panel">
-    <div id="locationField">
-      <input id="address" type="textbox" style="width:230px" placeholder="Type location"></input>
-      <button id="submit" class="btn btn-info" type="button">Go!</button>
-    </div>
-  </div>
-
-  {{!-- Map goes here --}}
-  <div id="map">
-
-  </div>
-
-  <!-- footer goes here -->
-  <div id="footer">
-    <footer class="text-center">
-      <a class="up-arrow" href="#container" data-toggle="tooltip" title="TO TOP">
-        <span class="glyphicon glyphicon-chevron-up"></span>
-      </a><br><br>
-      <p>Project Repo: <a href="https://github.com/ShmouG/Project2" data-toggle="tooltip" title="Learn APP">github repo
-        </a></p><br>
-      <p>
-        <a href="" data-toggle="tooltip" title="Github"></a>
-      </p>
-    </footer>
-  </div>
+  
 
   <script>
     function initMap() {
@@ -161,25 +182,21 @@
           map
           // icon:props.iconImage
         });
-
         // Check for customicon
         if (props.iconImage) {
           // Set icon image
           marker.setIcon(props.iconImage);
         }
-
         // Check content
         if (props.content) {
           const infoWindow = new google.maps.InfoWindow({
             content: props.content,
           });
-
           marker.addListener("click", () => {
             infoWindow.open(map, marker);
           });
         }
       }
-
       // Array of markers
       const markers = [{
           coords: {
@@ -206,15 +223,12 @@
           content: "<h1>Minnesota State Fair Restroom</h1>"
         }
       ];
-
       // Loop through markers
       for (let i = 0; i < markers.length; i++) {
         // Add marker
         addMarker(markers[i]);
       }
-
       const geocoder = new google.maps.Geocoder();
-
       document.getElementById("submit").addEventListener("click", () => {
         geocodeAddress(geocoder, map);
       });
@@ -226,7 +240,6 @@
               lng: position.coords.longitude
             };
             console.log(pos);
-
             // infoWindow.setPosition(pos);
             // infoWindow.setContent("Location found.");
             // infoWindow.open(map);
@@ -241,7 +254,6 @@
         handleLocationError(false, infoWindow, map.getCenter());
       }
     }
-
     function geocodeAddress(geocoder, resultsMap) {
       const address = document.getElementById("address").value;
       geocoder.geocode({
