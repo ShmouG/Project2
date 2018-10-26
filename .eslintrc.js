@@ -11,5 +11,8 @@ module.exports = {
   },
   globals: {
     google: true,
+    handleLocationError: true,
+    infoWindow: true,
+    map: true
   }
 };

@@ -1,37 +1,26 @@
 html {
     font-family: 'Josefin Sans', sans-serif;
 }
-
 #map {
     width: 100%;
-    height: 100%;
+    height: 550px;
 }
-
 #instructions {
     background-color: rgb(29, 126, 161);
-    width: 60%;
-    height: 300px;
-    padding: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
 }
-
 #container {
     padding: 72px 25px;
-    /* background-image: url('../images/background.jpeg'); */
     background-size: cover;
     width: 100%;
     height: 60px;
     position: relative;
 }
-
-/*#covermap {
-  width: 100%;
-  height: 500px;
-}*/
-
 #coverinfo {
     height: 300px;
 }
-
 #floating-panel {
     background-color: black;
     z-index: 5;
@@ -41,8 +30,22 @@ html {
     padding-left: 10px;
 }
 
-/*NavBar Styling reference http://www.w3schools.com/bootstrap/bootstrap_theme_band.asp*/
+#dropdownMenu {
+    height: 17px;
+    width: 17px;
+}
 
+#addBidet {
+    padding: 20px;
+}
+
+#submitBidet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*NavBar Styling reference http://www.w3schools.com/bootstrap/bootstrap_theme_band.asp*/
 /* Add a dark background color with a little bit see-through */
 .navbar {
     margin-bottom: 0;
@@ -52,68 +55,55 @@ html {
     letter-spacing: 4px;
     opacity: 0.9;
 }
-
 /* Add a gray color to all navbar links */
 .navbar li a,
 .navbar .navbar-brand {
     color: white !important;
 }
-
 /* On hover, the links will turn white */
 .navbar-nav li a:hover {
     color: #fff !important;
 }
-
 /* The active link */
 .navbar-nav li.active a {
     color: #fff !important;
     background-color: #29292c !important;
 }
-
 /* Remove border color from the collapsible button */
 .navbar-default .navbar-toggle {
     background-color: rgba(255, 255, 255, 0.53) !important;
 }
-
 /* Dropdown */
 .open .dropdown-toggle {
     color: #fff;
     background-color: #555 !important;
 }
-
 /* Dropdown links */
 .dropdown-menu li a {
     color: #000 !important;
 }
-
 /* On hover, the dropdown links will turn red */
 .dropdown-menu li a:hover {
     background-color: grey !important;
 }
-
 /*Footer Styling*/
 /* Add a dark background color to the footer */
 footer {
     background-color: #67BCDB;
     color: #f5f5f5;
-    padding: 32px;
+    padding: 5px;
 }
-
 footer a {
     color: #f5f5f5;
 }
-
 footer a:hover {
     color: #777;
     text-decoration: none;
 }
-
 ul {
     list-style-type: none;
 }
-
 /* Add a dark gray background color to the modal header and center text */
-
 .modal-header,
 .modal-header h4,
 .modal-header .close {
@@ -123,13 +113,11 @@ ul {
     font-size: 30px;
     z-index: 100;
 }
-
 .modal-header,
 .modal-body {
     padding: 40px 50px;
     z-index: 100;
 }
-
 .modal-backdrop {
     z-index: 0;
 }
