@@ -1,3 +1,4 @@
+let map;
 function initMap() {
   // map options
   const options = {
@@ -8,7 +9,7 @@ function initMap() {
     }
   };
   // new map
-  const map = new google.maps.Map(document.getElementById("map"), options);
+  map = new google.maps.Map(document.getElementById("map"), options);
   // Listen for click on map
   google.maps.event.addListener(map, "click", event => {
     event.preventDefault();
@@ -73,6 +74,8 @@ function initMap() {
       content: "<h1>Minnesota State Fair Restroom</h1>"
     }
   ];
+
+  
   // Loop through markers
   markers.forEach(el => {
     // add marker
