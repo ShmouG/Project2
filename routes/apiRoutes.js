@@ -17,7 +17,7 @@ module.exports = app => {
       extraDetails: req.body.extraDetails,
       img: req.body.img
     }).then(() => {
-      res.redirect('/');
+      res.redirect("/");
     });
   });
 

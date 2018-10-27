@@ -3,9 +3,8 @@ const db = require("../models");
 module.exports = app => {
   // Load index page
   app.get("/", (req, res) => {
-    db.Bidet.findAll({}).then(dbBidet => {
-      res.render("index", {
-      });
+    db.Bidet.findAll({}).then(() => {
+      res.render("index", {});
     });
   });
 

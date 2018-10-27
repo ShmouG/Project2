@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     toiletType: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: true
     },
     extraDetails: {
       type: DataTypes.STRING,
@@ -25,5 +25,5 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   });
-return Bidet;
+  return Bidet;
 };

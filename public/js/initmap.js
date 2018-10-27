@@ -74,6 +74,8 @@ function initMap() {
       content: "<h1>Minnesota State Fair Restroom</h1>"
     }
   ];
+
+  
   // Loop through markers
   markers.forEach(el => {
     // add marker
