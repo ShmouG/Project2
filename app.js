@@ -24,21 +24,3 @@ $("#modalTrigger").on("click", function(event){
         }
     });
 });
-
-$("#formSubmitButton").on("click", function () {
-    
-    // Grabbing user info
-    var userName = $("#userName").val().trim();
-    var lookingSelect1 = $("#lookingSelect1");
-    var userCommentsText = $("#userCommentsText").val().trim();
-
-    var newUser = {
-        UserName: userName,
-        JobSeeking: lookingSelect1,
-        UserComments: userCommentsText
-    };
-
-    console.log(newUser);
-    database.ref("/userComments").push(newUser);
-
-});
