@@ -223,25 +223,3 @@ ul {
 .login-help{
   font-size: 12px;
 }
-
-.login-btn {
-  text-align:center;
-  margin-top: 50px;
-}
-
-.button {
-  line-height: 55px;
-  padding: 0 30px;
-  background: #004a80;
-  color: #fff;
-  display: inline-block;
-  font-family: roboto;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.button:hover,
-.button:visited {
-  background: #006cba;
-  color: #fff;
-}
