@@ -21,6 +21,7 @@ html {
 #coverinfo {
     height: 300px;
 }
+
 #floating-panel {
     background-color: black;
     z-index: 5;
@@ -53,7 +54,7 @@ html {
     border: 0;
     font-size: 13px !important;
     letter-spacing: 4px;
-    opacity: 0.9;
+    position: relative;
 }
 /* Add a gray color to all navbar links */
 .navbar li a,
