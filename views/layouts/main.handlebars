@@ -17,6 +17,9 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
+  <!--firebase-->
+  <script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
@@ -60,7 +63,7 @@
 
               <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li><a href="#" data-toggle="modal" data-target="#login-modal">Sign In/Register</a></li>
+                  <li><a href="#modalTrigger" data-toggle="modal" data-target="#userinput">Sign In/Register</a></li>
                   <li><a href="#logout">Logout</a></li>
                   <li><a href="#">My Bidet's</a></li>
 
@@ -201,6 +204,8 @@
   {{!-- Custome Script --}}
   <script src="/public/js/components/login.js"></script>
   <script src="js/initmap.js"></script>
+
+  <script src="app.js"></script>
   
   {{!-- Bootstrap, Popper.js, Jquery --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"crossorigin="anonymous"></script>
