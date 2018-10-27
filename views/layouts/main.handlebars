@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway:500|Josefin+Sans' rel='stylesheet' class="keep"
-    type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway:500|Josefin+Sans' rel='stylesheet' class="keep" type='text/css'>
 
   <!-- Bootstrap Core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
   <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 
   <!-- login modal -->
@@ -20,8 +20,8 @@
   <!--firebase-->
   <script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/creative.css" type="text/css">
@@ -31,18 +31,18 @@
 </head>
 
 <body>
-  
+
   <!--modal login--->
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
       <div class="loginmodal-container">
-          <h1>Login to Your Account</h1><br>
+        <h1>Login to Your Account</h1><br>
         <form>
           <input type="text" name="user" placeholder="Username">
           <input type="password" name="pass" placeholder="Password">
           <input type="submit" name="login" class="login loginmodal-submit" value="Login">
         </form>
-          
+
         <div class="login-help">
           <a href="">Register</a> - <a href="">Forgot Password</a>
         </div>
@@ -56,165 +56,175 @@
       <div class="col">
         <div id="guestnavbar">
           <nav class="navbar navbar-default navbar-fixed-top">
-              <div class="navbar-header">
-                  <button type="button" id="dropdownMenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"></button>
-                  <a class="navbar-brand page-scroll" href="#page-top">Bidet Finder</a>
-              </div>
+            <div class="navbar-header">
+              <button type="button" id="dropdownMenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"></button>
+              <a class="navbar-brand page-scroll" href="#page-top">Bidet Finder</a>
+            </div>
 
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                  <li><id="modalTrigger" class="btn btn-primary" data-toggle="modal" data-target="#userinput">Sign In/Register</a></li>
-                  <li><a href="#logout">Logout</a></li>
-                  <li><a href="#">My Bidet's</a></li>
-
-                </ul>
-              </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li>
+                  <id="modalTrigger" class="btn btn-primary" data-toggle="modal" data-target="#userinput">Sign In/Register</a></li>
+                <li><a href="#logout">Logout</a></li>
+                <li><a href="#">My Bidet's</a></li>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Sign In/Register</a></li>
+                    <li><a href="#logout">Logout</a></li>
+                    <li><a href="#">My Bidet's</a></li>
+                  </ul>
+                </div>
 
           </nav>
-        </div>
-      </div>
-    </div>
-
-
-{{!-- instructions --}}
-    <div class="row">
-      <div class="col">
-        <div id="instructions">
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <h1>How to Add a Bidet:</h1>
-                <h3>1. Type in the address of the toilet/bidet in the 'Toilet Location'.</h3>
-                <h3>2. Choose Bidet or Toilet accordingly with the 'Toilet Type'.</h3>
-                <h3>3. Add an extra details about the Toilet/Bidet (Where it is in the building, A code is needed,
-                  etc...).</h3>
-                <h3>4. Add a photo of the toilet/bidet.</h3>
-                <h3>5. Press Submit.</h3>
-              </div>
-              <div class="carousel-item">
-                <h1>How to Search:</h1>
-                <h3>1. Type in any address in the search bar.</h3>
-                <h3>2. The map will navigate to the searched address, bidets/toilets near the location will populate the map.</h3>
-                <h3>3. Click on a toilet/bidet icon to see relevant info.</h3>
-              </div>
-              <div class="carousel-item">
-                <h1>How to Create an Account</h1>
-                <h3>1. Click the dropdown menu at the top left of the screen.</h3>
-                <h3>2. Click 'Create Account'</h3>
-                <h3>3. Enter a Username and Password</h3>
-                <h3>4. Click 'Create'.</h3>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
           </div>
         </div>
       </div>
 
-      {{!-- form group goes here --}}
-      <div class="col">
-        <div id="addBidet">
-          <h1>Add a Bidet/Toilet</h1>
-          <form>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Toilet Location</label>
-              <input type="address" class="form-control" id="exampleFormControlInput1" placeholder="Location">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Toilet Type</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Toilet</option>
-                <option>Bidet</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Extra Details</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                  <label for="exampleFormControlFile1">Example file input</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+
+      {{!-- instructions --}}
+      <div class="row">
+        <div class="col">
+          <div id="instructions">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <h1>How to Add a Bidet:</h1>
+                  <h3>1. Type in the address of the toilet/bidet in the 'Toilet Location'.</h3>
+                  <h3>2. Choose Bidet or Toilet accordingly with the 'Toilet Type'.</h3>
+                  <h3>3. Add an extra details about the Toilet/Bidet (Where it is in the building, A code is needed, etc...).
+                  </h3>
+                  <h3>4. Add a photo of the toilet/bidet.</h3>
+                  <h3>5. Press Submit.</h3>
+                </div>
+                <div class="carousel-item">
+                  <h1>How to Search:</h1>
+                  <h3>1. Type in any address in the search bar.</h3>
+                  <h3>2. The map will navigate to the searched address, bidets/toilets near the location will populate the
+                    map.
+                  </h3>
+                  <h3>3. Click on a toilet/bidet icon to see relevant info.</h3>
+                </div>
+                <div class="carousel-item">
+                  <h1>How to Create an Account</h1>
+                  <h3>1. Click the dropdown menu at the top left of the screen.</h3>
+                  <h3>2. Click 'Create Account'</h3>
+                  <h3>3. Enter a Username and Password</h3>
+                  <h3>4. Click 'Create'.</h3>
                 </div>
               </div>
-              <div id="submitBidet" class="col">
-                <button  type="button" class="btn">Submit</button>
-              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
-
-          </form>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Search goes here -->
-    <div class="row">
-      <div class="col">
-        <div id="floating-panel">
-          <div id="locationField">
-            <input id="address" type="textbox" style="width:230px" placeholder="Type location"></input>
-            <button id="submit" class="btn btn-info" type="button">Go!</button>
+        {{!-- form group goes here --}}
+        <div class="col">
+          <div id="addBidet">
+            <h1>Add a Bidet/Toilet</h1>
+            <form class="addBidetForm" action="/api/bidet/create" method="POST">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Toilet Building</label>
+                <input type="address" class="form-control" name="buildingName" id="buildingName" iplaceholder="Building Name">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Toilet Address</label>
+                <input type="address" class="form-control" name="address" id="address" placeholder="Address">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Toilet Type</label>
+                <select class="form-control" name="toilietType" id="toilietType">
+                  <option>Toilet</option>
+                  <option>Bidet</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Extra Details</label>
+                <textarea class="form-control" name="extraDetails" id="extraDetails" rows="3"></textarea>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="exampleFormControlFile1">Example file input</label>
+                    <input type="file" class="form-control-file" name="img" id="img">
+                  </div>
+                </div>
+                <div class="col">
+                  <button id="submitBidet" type="submit" class="btn">Submit</button>
+                </div>
+              </div>
+
+            </form>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Map goes here  -->
-    <div class="row">
-      <div class="col">
-        <div id="map">
-
-        </div>
-      </div>
-    </div>
-
-    <!-- footer goes here -->
-    <div class="row">
-      <div class="col">
-        <div id="footer">
-         <footer class="text-center">
-            <a class="up-arrow" href="#container" data-toggle="tooltip" title="TO TOP">
-              <span class="glyphicon glyphicon-chevron-up"></span>
-            </a><br><br>
-            <p>Project Repo: <a href="https://github.com/ShmouG/Project2" data-toggle="tooltip" title="Learn APP">github
-                repo
-              </a></p><br>
-            <p>
-              <a href="" data-toggle="tooltip" title="Github"></a>
-            </p>
-
-            <p><a href="https://.github.io/Bootstrap-Portfolio/">Sam Gross</a></p>
-            <p><a href="https://jordancoon.github.io/Portfolio/">Jordan Coon</a></p>
-            <p><a href="https://.github.io/Basic-Portfolio/">Kane Mcgree</a></p>
-            <p><a href="https://swart102.github.io/portfolio/">Isaac Swartzer</a></p>
-          </footer>
+      <!-- Search goes here -->
+      <div class="row">
+        <div class="col">
+          <div id="floating-panel">
+            <div id="locationField">
+              <input id="address" type="textbox" style="width:230px" placeholder="Type location"></input>
+              <button id="submit" class="btn btn-info" type="button">Go!</button>
+            </div>
+          </div>
         </div>
       </div>
 
-    </div>
+      <!-- Map goes here  -->
+      <div class="row">
+        <div class="col">
+          <div id="map">
+
+          </div>
+        </div>
+      </div>
+
+      <!-- footer goes here -->
+      <div class="row">
+        <div class="col">
+          <div id="footer">
+            <footer class="text-center">
+              <a class="up-arrow" href="#container" data-toggle="tooltip" title="TO TOP">
+                <span class="glyphicon glyphicon-chevron-up"></span>
+              </a><br><br>
+              <p>Project Repo: <a href="https://github.com/ShmouG/Project2" data-toggle="tooltip" title="Learn APP">github
+                  repo
+                </a></p><br>
+              <p>
+                <a href="" data-toggle="tooltip" title="Github"></a>
+              </p>
+
+              <p><a href="https://.github.io/Bootstrap-Portfolio/">Sam Gross</a></p>
+              <p><a href="https://jordancoon.github.io/Portfolio/">Jordan Coon</a></p>
+              <p><a href="https://.github.io/Basic-Portfolio/">Kane Mcgree</a></p>
+              <p><a href="https://swart102.github.io/portfolio/">Isaac Swartzer</a></p>
+            </footer>
+          </div>
+        </div>
+
+      </div>
 
 
-  {{!-- Custome Script --}}
-  <script src="/public/js/components/login.js"></script>
-  <script src="js/initmap.js"></script>
+      {{!-- Bootstrap, Popper.js, Jquery --}}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script> {{!-- google api --}}
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0FeHIxkGWXjnXjTXmaEauw2kwz29CyMo&callback=initMap&libraries=places"
+        async defer></script> {{!-- Custome Script --}}
+      <script src="/public/js/components/login.js"></script>
+      <script src="js/initmap.js"></script>
 
-  <script src="app.js"></script>
-  
-  {{!-- Bootstrap, Popper.js, Jquery --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"crossorigin="anonymous"></script>
-  
-  {{!-- google api --}}
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0FeHIxkGWXjnXjTXmaEauw2kwz29CyMo&callback=initMap&libraries=places"async defer></script>
- 
+
 </body>
 
 </html>
