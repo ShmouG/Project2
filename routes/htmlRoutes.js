@@ -5,8 +5,6 @@ module.exports = app => {
   app.get("/", (req, res) => {
     db.Bidet.findAll({}).then(dbBidet => {
       res.render("index", {
-        msg: "Welcome!",
-        examples: dbBidet
       });
     });
   });

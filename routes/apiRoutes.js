@@ -10,8 +10,14 @@ module.exports = app => {
 
   // Create a new example
   app.post("/api/bidet/create", (req, res) => {
-    db.Bidet.create(req.body).then(dbBidets => {
-      res.json(dbBidets);
+    db.Bidet.create({
+      buildingName: req.body.buildingName,
+      address: req.body.address,
+      toiletType: req.body.toiletType,
+      extraDetails: req.body.extraDetails,
+      img: req.body.img
+    }).then(() => {
+      res.redirect('/');
     });
   });
 

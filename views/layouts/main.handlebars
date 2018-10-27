@@ -90,7 +90,8 @@
                 <h1>How to Search:</h1>
                 <h3>1. Type in any address in the search bar.</h3>
                 <h3>2. The map will navigate to the searched address, bidets/toilets near the location will populate the
-                  map.</h3>
+                  map.
+                </h3>
                 <h3>3. Click on a toilet/bidet icon to see relevant info.</h3>
               </div>
               <div class="carousel-item">
@@ -117,35 +118,35 @@
       <div class="col">
         <div id="addBidet">
           <h1>Add a Bidet/Toilet</h1>
-          <form action="/api/bidet/create" method="POST">
+          <form class="addBidetForm" action="/api/bidet/create" method="POST">
             <div class="form-group">
               <label for="exampleFormControlInput1">Toilet Building</label>
-              <input type="address" class="form-control" id="exampleFormControlInput1" placeholder="Building Name">
+              <input type="address" class="form-control" name="buildingName" id="buildingName"  iplaceholder="Building Name">
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Toilet Address</label>
-              <input type="address" class="form-control" id="exampleFormControlInput1" placeholder="Address">
+              <input type="address" class="form-control" name="address" id="address" placeholder="Address">
             </div>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Toilet Type</label>
-              <select class="form-control" id="exampleFormControlSelect1">
+              <select class="form-control" name="toilietType" id="toilietType">
                 <option>Toilet</option>
                 <option>Bidet</option>
               </select>
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Extra Details</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" name="extraDetails" id="extraDetails" rows="3"></textarea>
             </div>
             <div class="row">
               <div class="col">
                 <div class="form-group">
                   <label for="exampleFormControlFile1">Example file input</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                  <input type="file" class="form-control-file" name="img" id="img">
                 </div>
               </div>
               <div class="col">
-                <button id="submitBidet" type="button" class="btn">Submit</button>
+                <button id="submitBidet" type="submit" class="btn">Submit</button>
               </div>
             </div>
 
@@ -202,8 +203,6 @@
 
 
     {{!-- Custome Script --}}
-    <script src="/public/js/components/login.js"></script>
-    <script src="js/initmap.js"></script> {{!-- Bootstrap, Popper.js, Jquery --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
       crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -212,6 +211,9 @@
       crossorigin="anonymous"></script> {{!-- google api --}}
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0FeHIxkGWXjnXjTXmaEauw2kwz29CyMo&callback=initMap&libraries=places"
       async defer></script>
+    <script src="/public/js/components/login.js"></script>
+    <script src="js/initmap.js"></script> {{!-- Bootstrap, Popper.js, Jquery --}}
+
 
 </body>
 
