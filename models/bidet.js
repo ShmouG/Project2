@@ -10,6 +10,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true
     },
+    extraDetails: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: null,
+      unique: true
+    },
     img: {
       type: DataTypes.TEXT,
       allowNull: false
@@ -25,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       defaultValue: null,
       validate: { min: -180, max: 180 }
-    }
+    }, 
   });
-  return Bidet;
+return Bidet;
 };

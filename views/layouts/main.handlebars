@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway:500|Josefin+Sans' rel='stylesheet' class="keep"
-    type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway:500|Josefin+Sans' rel='stylesheet' class="keep" type='text/css'>
 
   <!-- Bootstrap Core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
   <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 
   <!-- login modal -->
@@ -26,18 +26,18 @@
 </head>
 
 <body>
-  
+
   <!--modal login--->
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
       <div class="loginmodal-container">
-          <h1>Login to Your Account</h1><br>
+        <h1>Login to Your Account</h1><br>
         <form>
           <input type="text" name="user" placeholder="Username">
           <input type="password" name="pass" placeholder="Password">
           <input type="submit" name="login" class="login loginmodal-submit" value="Login">
         </form>
-          
+
         <div class="login-help">
           <a href="">Register</a> - <a href="">Forgot Password</a>
         </div>
@@ -51,19 +51,19 @@
       <div class="col">
         <div id="guestnavbar">
           <nav class="navbar navbar-default navbar-fixed-top">
-              <div class="navbar-header">
-                  <button type="button" id="dropdownMenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"></button>
-                  <a class="navbar-brand page-scroll" href="#page-top">Bidet Finder</a>
-              </div>
+            <div class="navbar-header">
+              <button type="button" id="dropdownMenu" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"></button>
+              <a class="navbar-brand page-scroll" href="#page-top">Bidet Finder</a>
+            </div>
 
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                  <li><a href="#" data-toggle="modal" data-target="#login-modal">Sign In/Register</a></li>
-                  <li><a href="#logout">Logout</a></li>
-                  <li><a href="#">My Bidet's</a></li>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li><a href="#" data-toggle="modal" data-target="#login-modal">Sign In/Register</a></li>
+                <li><a href="#logout">Logout</a></li>
+                <li><a href="#">My Bidet's</a></li>
 
-                </ul>
-              </div>
+              </ul>
+            </div>
 
           </nav>
         </div>
@@ -71,7 +71,7 @@
     </div>
 
 
-{{!-- instructions --}}
+    {{!-- instructions --}}
     <div class="row">
       <div class="col">
         <div id="instructions">
@@ -81,15 +81,16 @@
                 <h1>How to Add a Bidet:</h1>
                 <h3>1. Type in the address of the toilet/bidet in the 'Toilet Location'.</h3>
                 <h3>2. Choose Bidet or Toilet accordingly with the 'Toilet Type'.</h3>
-                <h3>3. Add an extra details about the Toilet/Bidet (Where it is in the building, A code is needed,
-                  etc...).</h3>
+                <h3>3. Add an extra details about the Toilet/Bidet (Where it is in the building, A code is needed, etc...).
+                </h3>
                 <h3>4. Add a photo of the toilet/bidet.</h3>
                 <h3>5. Press Submit.</h3>
               </div>
               <div class="carousel-item">
                 <h1>How to Search:</h1>
                 <h3>1. Type in any address in the search bar.</h3>
-                <h3>2. The map will navigate to the searched address, bidets/toilets near the location will populate the map.</h3>
+                <h3>2. The map will navigate to the searched address, bidets/toilets near the location will populate the
+                  map.</h3>
                 <h3>3. Click on a toilet/bidet icon to see relevant info.</h3>
               </div>
               <div class="carousel-item">
@@ -116,10 +117,14 @@
       <div class="col">
         <div id="addBidet">
           <h1>Add a Bidet/Toilet</h1>
-          <form>
+          <form action="/api/bidet/create" method="POST">
             <div class="form-group">
-              <label for="exampleFormControlInput1">Toilet Location</label>
-              <input type="address" class="form-control" id="exampleFormControlInput1" placeholder="Location">
+              <label for="exampleFormControlInput1">Toilet Building</label>
+              <input type="address" class="form-control" id="exampleFormControlInput1" placeholder="Building Name">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Toilet Address</label>
+              <input type="address" class="form-control" id="exampleFormControlInput1" placeholder="Address">
             </div>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Toilet Type</label>
@@ -139,8 +144,8 @@
                   <input type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
               </div>
-              <div id="submitBidet" class="col">
-                <button  type="button" class="btn">Submit</button>
+              <div class="col">
+                <button id="submitBidet" type="button" class="btn">Submit</button>
               </div>
             </div>
 
@@ -174,7 +179,7 @@
     <div class="row">
       <div class="col">
         <div id="footer">
-         <footer class="text-center">
+          <footer class="text-center">
             <a class="up-arrow" href="#container" data-toggle="tooltip" title="TO TOP">
               <span class="glyphicon glyphicon-chevron-up"></span>
             </a><br><br>
@@ -196,18 +201,18 @@
     </div>
 
 
-  {{!-- Custome Script --}}
-  <script src="/public/js/components/login.js"></script>
-  <script src="js/initmap.js"></script>
-  
-  {{!-- Bootstrap, Popper.js, Jquery --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"crossorigin="anonymous"></script>
-  
-  {{!-- google api --}}
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0FeHIxkGWXjnXjTXmaEauw2kwz29CyMo&callback=initMap&libraries=places"async defer></script>
- 
+    {{!-- Custome Script --}}
+    <script src="/public/js/components/login.js"></script>
+    <script src="js/initmap.js"></script> {{!-- Bootstrap, Popper.js, Jquery --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script> {{!-- google api --}}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0FeHIxkGWXjnXjTXmaEauw2kwz29CyMo&callback=initMap&libraries=places"
+      async defer></script>
+
 </body>
 
 </html>
