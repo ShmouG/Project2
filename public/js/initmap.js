@@ -75,7 +75,6 @@ function initMap() {
     }
   ];
 
-  
   // Loop through markers
   markers.forEach(el => {
     // add marker
