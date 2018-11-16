@@ -7,7 +7,7 @@
     "start": "node server.js",
     "lint": "eslint **/*.js --quiet",
     "fix": "eslint --fix .",
-    "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "test": "jest"
   },
   "license": "ISC",
   "dependencies": {
@@ -16,6 +16,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "grunt": "^1.0.3",
+    "jest": "^23.6.0",
     "mysql2": "^1.5.3",
     "nodemon": "^1.18.4",
     "popper.js": "^1.14.4",
