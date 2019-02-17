@@ -16,7 +16,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "grunt": "^1.0.3",
-    "jest": "^23.6.0",
+    "jest": "^24.0.0",
     "mysql2": "^1.5.3",
     "popper.js": "^1.14.4",
     "sequelize": "^4.38.0"
