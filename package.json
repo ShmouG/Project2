@@ -14,7 +14,7 @@
     "@google/maps": "^0.5.5",
     "dotenv": "^6.0.0",
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars": "^5.3.1",
     "grunt": "^1.0.4",
     "jest": "^24.0.0",
     "mysql2": "^1.5.3",
